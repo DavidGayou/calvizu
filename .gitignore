@@ -1,0 +1,7 @@
+
+*.swp
+*.zip
+*.tgz
+
+
+db_passwd_cfg.php
