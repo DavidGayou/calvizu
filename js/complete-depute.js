@@ -17,6 +17,7 @@ cal.init({ data: data_url,
 
 $("#slug-search-go").on("click", function(event) {
     mySlugDepute = $("#slug-depute").val(); 
+    $("#un_depute #print-slug").html("<h2>"+mySlugDepute+"</h2>");
     var data_url = "presences.php?slug='"+mySlugDepute+"'";
     
     cal.destroy();
