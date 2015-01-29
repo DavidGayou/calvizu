@@ -13,6 +13,9 @@ cal.init({ data: data_url,
     itemNamespace: "undepute",
     nextSelector: "#domainDynamicDimension-next",
     previousSelector: "#domainDynamicDimension-previous",
+    onClick: function(date, nb) {
+        $("#modal-seance").modal("show");
+    },
     legend: [1, 2, 3, 4]   });
 
 $("#slug-search-go").on("click", function(event) {
