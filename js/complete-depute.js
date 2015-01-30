@@ -47,6 +47,18 @@ $("#slug-search-go").on("click", function(event) {
         itemNamespace: "undepute",
         nextSelector: "#domainDynamicDimension-next",
         previousSelector: "#domainDynamicDimension-previous",
+        onClick: function(date, nb) {
+            var date_year = date.getFullYear();
+            var date_month = date.getMonth()+1;
+            var date_day = date.getDate();
+
+            var date_str = ""+date_year+"-"+date_month+"-"+date_day;
+            $.get("detail_seance.php", {slug: mySlugDepute, date: date_str })
+                .done(function(data){
+                    $("#list-seances").html(data);
+                    $("#modal-seance").modal("show");
+                });
+        },
         legend: [1, 2, 3, 4]   });
 
     });
