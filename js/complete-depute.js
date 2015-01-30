@@ -14,7 +14,17 @@ cal.init({ data: data_url,
     nextSelector: "#domainDynamicDimension-next",
     previousSelector: "#domainDynamicDimension-previous",
     onClick: function(date, nb) {
-        $("#modal-seance").modal("show");
+        var date_year = date.getFullYear();
+        var date_month = date.getMonth()+1;
+        var date_day = date.getDate();
+
+        var date_str = ""+date_year+"-"+date_month+"-"+date_day;
+        //$("#list-seances").html($.get("detail_seance.php", {slug: "jean-jacques-urvoas", date: "2012-11-27" }));
+        $.get("detail_seance.php", {slug: mySlugDepute, date: date_str })
+            .done(function(data){
+                $("#list-seances").html(data);
+                $("#modal-seance").modal("show");
+            });
     },
     legend: [1, 2, 3, 4]   });
 
